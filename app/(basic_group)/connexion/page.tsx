@@ -20,7 +20,7 @@ export default function Login(){
                     <div className="flex justify-between mt-3">
                         <BlueButtons.BaseBlueButton text="Connexion au systeme"/>
                         pi
-                        <Link href="/register" className="font-semibold text-indigo-600">S&apos;inscrire &rarr;</Link>
+                        <Link href="/inscription" className="font-semibold text-indigo-600">S&apos;inscrire &rarr;</Link>
                     </div>
                         </form>
                     </div>
