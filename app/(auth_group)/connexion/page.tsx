@@ -10,8 +10,8 @@ export default function Login(){
             <h2 className="text-blue-600 font-bold text-xl text-center">Art.cd</h2>
             <p className="text-gray-600 text-center font-semibold">Connexion de l&apos;artiste.</p>
             <div className=" mt-10 w-10/12 mx-auto">
-                <TextBox name="email" label="E-mail" type="email" placeholder="Votre  addresse e-mail"/>
-                <TextBox name="password" label="Mot de passe" type="password" placeholder="Votre  mot de passe"/>
+                <TextBox name="email" label="E-mail" type="email" placeholder="Votre addresse e-mail"/>
+                <TextBox name="password" label="Mot de passe" type="password" placeholder="Votre mot de passe"/>
                 <small className="mt-2 text-gray-600">Mot de passe oublier ?<Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> Reinitialiser mot de passe.</Link>  </small>
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Connexion au systeme" width="full"/>
