@@ -9,6 +9,6 @@ export default function BasicGroupLayout({
   children: React.ReactNode
 }) {
   return (
-      <div className="bg-gray-50 h-full">{children}</div>
+      <div className="bg-gray-50 h-screen w-full flex justify-center items-center px-12">{children}</div>
   )
 }

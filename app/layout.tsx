@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className='h-full w-full bg-white text-gray-700' suppressHydrationWarning={true} lang="en">
+    <html className='h-screen w-full bg-white  text-gray-700' suppressHydrationWarning={true} lang="en">
       <body className={inter.className}>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div>
           {children}
         </div>
