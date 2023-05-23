@@ -5,41 +5,47 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function SignUp(){
-    return <div className="w-full flex flex-col h-full">
-            <div className="h-auto flex items-center bg-white w-full">
-                <div className="w-[95%] mt-7 flex items-center mx-auto ">
-                    <div className="w-full">
-                        <h2 className="text-blue-600 font-semibold mb-3 text-xl">Identification de l&apos;artiste.</h2>
-                        <form className="w-full">
-                            <div className="w-full flex justify-between space-x-4">
-                                <div className="rounded-lg p-2 w-1/2 flex justify-between bg-gray-50 border">
-                                    <TextBox name="firstName" label="Nom" placeholder="Votre  nom"/>
-                                    <TextBox name="secondName" label="Post nom" placeholder="Votre  Post nom"/>
-                                    <TextBox name="lastName" label="Prenom" placeholder="Votre Prenom"/>
-                                </div>
-                                <div className="rounded-lg p-2 w-1/2 flex justify-between bg-gray-50 border">
-                                    <TextBox name="firstName" label="Nom" placeholder="Votre  nom"/>
-                                    <TextBox name="secondName" label="Post nom" placeholder="Votre  Post nom"/>
-                                </div>
-                            </div>
-                            <TextBox name="password" label="Mot de passe" type="password" placeholder="Votre mot de passe"/>
-                            <small className="text-gray-600 mt-1.5">Mot de passe oublier ? <Link href="/reset-password" className="text-indigo-600 underline">Reinitialiser mot de passe</Link>.</small>
-                    <div className="flex justify-between mt-3">
-                        <BlueButtons.BaseBlueButton text="Connexion au systeme"/>
-                        pi
-                        <Link href="/register" className="font-semibold text-indigo-600">S&apos;inscrire &rarr;</Link>
-                    </div>
-                        </form>
-                    </div>
-                    {/* <div className="w-1/2 flex justify-center p-1">
-                        <div className="w-72 h-72">
-                            <Image alt="Artist illustration" className="w-full object-cover h-full" width={0} height={0} src={"/login.jpg"} sizes="100%"/>
-                        </div>
-                    </div> */}
-
-                </div>
-            </div>
-
+   return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         
-    </div>
+        <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
+            <h1 className="text-gray-900 w-11/12 mx-auto font-bold text-3xl text-center">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
+            <div className="w-full h-72">
+                <Image alt="Image login illustration" src={"/illustration.png"} sizes="500%" height={0} width={0} className="w-full  mix-blend-color-burn  h-full"/>
+            </div>
+        </div>
+        <form className="w-[55%] py-4 px-2 h-full">
+            <h2 className="text-blue-600 font-bold text-xl text-center">Art.cd</h2>
+            <p className="text-gray-600 text-center font-semibold">Inscription de l&apos;artiste.</p>
+            <div className=" mt-3 h-[355px] p-2 overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
+                <div className="w-9/12">
+                    <TextBox name="firstName" label="Nom" type="text" placeholder="Votre nom"/>
+                </div>
+                <div className="w-full flex space-x-2">
+                    <TextBox name="secondName" label="PostNom" type="text" placeholder="Votre post-nom"/>
+                    <TextBox name="lastName" label="Prenom" type="text" placeholder="Votre prenom"/>
+                </div>
+                <div className="w-7/12">
+                    <TextBox name="phoneNumber" label="Telephone" type="phone" placeholder="Avec le code du pays"/>
+                </div>
+                <div className="w-9/12">
+                    <TextBox name="email" label="E-mail" type="email" placeholder="Votre adresse email"/>
+                </div>
+                <div className="w-full flex space-x-2">
+                    <TextBox name="birthPlace" label="Lieu de naissance" type="text" placeholder=""/>
+                    <TextBox name="birthday" label="Date de naissance" type="date" placeholder=""/>
+                </div>
+                <div className="w-full flex space-x-2">
+                    <TextBox name="birthPlace" label="Province" type="text" placeholder="Province ou vous vivez actuellement"/>
+                    <TextBox name="birthday" label="Ville/Village" type="text" placeholder="Ville ou Village"/>
+                </div>
+                <small className="mt-2 text-gray-600">En cliquant sur le bouton <b>&apos;Enregistrer les informations&apos;</b> vous acceptez <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> notre politique de confidentialites.</Link> ansi que <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> nos conditions d&apos;utilisations.</Link>  </small>
+                <div className="my-3">
+                    <BlueButtons.BaseBlueButton text="Enregistrer les informations" width="full"/>
+                </div>
+                <small className="mt-3 text-gray-600">Pas encore inscrit  ?<Link className="text-blue-600 underline" href={"/inscription"}> Inscrivez-vous.</Link>  </small>
+            </div>
+            <div className="mx-auto text-sm w-full text-center text-gray-400 mt-3">&copy; Copyright 2023 Art.cd.</div>
+
+        </form>
+   </div>
 }
