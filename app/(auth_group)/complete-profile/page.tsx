@@ -1,5 +1,6 @@
 "use client"
 import BlueButtons from "@/components/BlueButtons";
+import GrayButtons from "@/components/GrayButtons";
 import TextBox from "@/components/TextBox";
 import Textarea from "@/components/Textarea";
 import Image from "next/image";
@@ -39,6 +40,7 @@ export default function SignUp(){
                </div>
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
                <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
+                <GrayButtons.BaseGrayButton text="Ajouter les Resaux sociaux"/>
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
                 </div>
