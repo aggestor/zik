@@ -21,7 +21,9 @@ export default function SignUp(){
             setImageFileURL(URL.createObjectURL(fileImage))
         }
     }
-    const toggleAddSocials = () => setShowAddSocials(!showAddSocials)
+    const toggleAddSocials = () => {
+        console.log("clicked");
+    }
 
    return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
