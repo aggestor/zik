@@ -8,7 +8,7 @@ type Props = {
     text?:string
 }
 const SideMenuItem : React.FC<Props> = ({children,href,current,text}) =>{
-    return <Link href={href} className="w-full flex items-center space-x-2 my-2 rounded-lg hover:bg-gray-200 h-8 bg-white">
+    return <Link href={href} className="w-full flex items-center space-x-2 px-1 my-1.5 rounded-lg hover:bg-blue-100 h-10 bg-white">
         <span className="border rounded p-0.5">{children}</span><span>{text}</span>
      </Link>
              
