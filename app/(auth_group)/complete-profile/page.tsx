@@ -1,6 +1,7 @@
 "use client"
 import BlueButtons from "@/components/BlueButtons";
 import TextBox from "@/components/TextBox";
+import Textarea from "@/components/Textarea";
 import Image from "next/image";
 import Link from "next/link";
 import { ChangeEvent, useRef, useState } from "react";
@@ -20,7 +21,6 @@ export default function SignUp(){
     }
 
    return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
-        
         <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
             <h1 className="w-11/12 mx-auto text-3xl font-bold text-center text-gray-900">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
             <div className="w-full h-72">
@@ -38,7 +38,7 @@ export default function SignUp(){
                     </span>
                </div>
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
-               
+               <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
                 </div>
