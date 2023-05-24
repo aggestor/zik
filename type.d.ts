@@ -3,5 +3,6 @@ export type ButtonProps = {
     icon?: JSX.Element
     iconPosition?:"left"|"right",
     width?:"full"|"fit"
+    type?:"button"|"reset"|"submit"
     onClick ?:(e:any) => void
 }

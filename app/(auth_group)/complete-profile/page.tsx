@@ -11,6 +11,7 @@ import {BsImage} from "react-icons/bs"
 export default function SignUp(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
     const [imageFile, setImageFile]  = useState<File>()
+    const [showAddSocials,setShowAddSocials] = useState(true)
     const imagePicker = useRef<any>()
     const handlePickImage = ()=> imagePicker.current?.click()
     const pickImage = (e :ChangeEvent<HTMLInputElement>) =>{
@@ -20,6 +21,7 @@ export default function SignUp(){
             setImageFileURL(URL.createObjectURL(fileImage))
         }
     }
+    const toggleAddSocials = () => setShowAddSocials(!showAddSocials)
 
    return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
@@ -40,7 +42,7 @@ export default function SignUp(){
                </div>
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
                <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
-                <GrayButtons.BaseGrayButton text="Ajouter les Resaux sociaux"/>
+                <GrayButtons.BaseGrayButton type="button" onClick={toggleAddSocials} text="Ajouter les Resaux sociaux"/>
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
                 </div>
