@@ -6,7 +6,7 @@ import Textarea from "@/components/Textarea";
 import Image from "next/image";
 import Link from "next/link";
 import { ChangeEvent, useRef, useState } from "react";
-import {BsImage} from "react-icons/bs"
+import {BsFacebook, BsImage, BsInstagram, BsTiktok, BsTwitter, BsYoutube} from "react-icons/bs"
 
 export default function SignUp(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
@@ -43,6 +43,38 @@ export default function SignUp(){
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
                <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
                 <GrayButtons.BaseGrayButton type="button" onClick={toggleAddSocials} text="Ajouter les Resaux sociaux"/>
+                {showAddSocials && <div>
+                    <div className="w-full items-center flex space-x-2">
+                        <span className="w-8 h-8 grid place-items-center">
+                            <BsTiktok className="w-6 h-6"/>
+                        </span>
+                        <TextBox name="lastName"  type="link" placeholder="Tiktok"/>
+                    </div>
+                    <div className="w-full items-center flex space-x-2">
+                        <span className="w-8 text-red-500 h-8 grid place-items-center rounded">
+                            <BsYoutube className="w-6 h-6"/>
+                        </span>
+                        <TextBox name="lastName"  type="link" placeholder="Youtube"/>
+                    </div>
+                    <div className="w-full items-center flex space-x-2">
+                        <span className="w-8 h-8 grid place-items-center">
+                            <BsInstagram className="w-6 h-6"/>
+                        </span>
+                        <TextBox name="lastName"  type="link" placeholder="Instagram"/>
+                    </div>
+                    <div className="w-full items-center flex space-x-2">
+                        <span className="w-8 text-blue-600 h-8 grid place-items-center">
+                            <BsFacebook className="w-6 h-6"/>
+                        </span>
+                        <TextBox name="lastName"  type="link" placeholder="Facebook"/>
+                    </div>
+                    <div className="w-full items-center flex space-x-2">
+                        <span className="w-8 text-sky-500 h-8 grid place-items-center">
+                            <BsTwitter className="w-6 h-6"/>
+                        </span>
+                        <TextBox name="lastName"  type="link" placeholder="Twitter"/>
+                    </div>
+                </div>}
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
                 </div>
