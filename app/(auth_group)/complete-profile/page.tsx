@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ChangeEvent, useRef, useState } from "react";
 import {BsFacebook, BsImage, BsInstagram, BsTiktok, BsTwitter, BsYoutube} from "react-icons/bs"
 
-export default function SignUp(){
+export default function CompleteProfile(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
     const [imageFile, setImageFile]  = useState<File>()
     const [showAddSocials,setShowAddSocials] = useState(true)
