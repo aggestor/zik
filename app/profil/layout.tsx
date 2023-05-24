@@ -12,9 +12,8 @@ export const metadata = {
     return (
         <div className="bg-gray-100 h-screen w-full flex justify-center items-center">
            <SideMenu/>
-            <div className="w-[80%] bg-white h-full">
+            <div className="w-[80%] flex justify-center items-center bg-white h-full">
                 {children}
             </div>
-
         </div>
     )}
