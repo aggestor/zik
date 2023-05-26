@@ -10,9 +10,9 @@ export const metadata = {
     children: React.ReactNode
   }) {
     return (
-        <div className="bg-gray-100 h-screen w-full flex justify-center items-center">
+        <div className="flex items-center justify-center w-full h-screen bg-gray-100">
            <SideMenu/>
-            <div className="w-[80%] flex justify-center items-center bg-white h-full">
+            <div className="w-[80%] flex justify-center overflow-x-auto items-center bg-white h-full">
                 {children}
             </div>
         </div>
