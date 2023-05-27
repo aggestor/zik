@@ -7,12 +7,13 @@ import Textarea from "@/components/Textarea";
 import Image from "next/image";
 import Link from "next/link";
 import { ChangeEvent, useRef, useState } from "react";
+import { AiOutlineKey, AiOutlineSetting } from "react-icons/ai";
 import { BsFacebook, BsImage, BsInstagram, BsTiktok, BsTwitter, BsYoutube } from "react-icons/bs";
 
 export default function ModifierProfile(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
     const [imageFile, setImageFile]  = useState<File>()
-    const [showAddSocials,setShowAddSocials] = useState(true)
+    const [showEditSettings,setShowEditSettings] = useState(false)
     const imagePicker = useRef<any>()
     const handlePickImage = ()=> imagePicker.current?.click()
     const pickImage = (e :ChangeEvent<HTMLInputElement>) =>{
@@ -22,7 +23,8 @@ export default function ModifierProfile(){
             setImageFileURL(URL.createObjectURL(fileImage))
         }
     }
-    return <form className="w-11/12 relative overflow-y-auto overflow-x-hidden border shadow rounded-lg  h-[90%] flex mx-auto">
+    const toggleEditSettings = () => setShowEditSettings(!showEditSettings)
+    return <form className="w-11/12 relative overflow-y-auto overflow-x-hidden border shadow rounded-lg bg-white  h-[90%] flex mx-auto">
         <div className="w-[50%] py-4 px-2 h-full">
             <h2 className="text-xl font-bold text-center text-blue-600">Art.cd</h2>
             <p className="font-semibold text-center text-gray-600">Inscription de l&apos;artiste.</p>
@@ -107,5 +109,12 @@ export default function ModifierProfile(){
                 </div>
             </div>
         </div>
+        <span onClick={toggleEditSettings} className="w-8 h-8 text-gray-600 hover:bg-blue-100 cursor-pointer grid place-items-center absolute right-3 top-3 rounded">
+            <AiOutlineSetting className="w-6 h-6"/>
+        </span>
+        {showEditSettings && <div className="w-40 text-sm text-gray-600 flex flex-col h-auto rounded border shadow absolute bg-white top-10 right-5">
+            <Link className="hover:bg-gray-200 p-1 border-b rounded" href={"/profil/modifier/mot-de-passe"}>Modifier mot de passe</Link>
+            <Link className="hover:bg-gray-200 p-1 rounded" href={"/profil/modifier/mot-de-passe"}>Modifier mot de passe</Link>
+        </div>}
     </form>
 }

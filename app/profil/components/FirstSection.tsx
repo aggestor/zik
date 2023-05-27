@@ -9,10 +9,10 @@ export default function FirstSection(){
     <div className="absolute w-40 h-40 p-1 bg-white border-2 border-white rounded-full top-14 left-4">
         <Image className="object-cover w-full h-full rounded-full" src={"/man.jpg"} alt="User avatar" sizes="100%" height={0} width={0}/>
     </div>
-    <div className="flex items-center justify-end w-full h-[62px] px-2">
+    <div className="flex items-center bg-white justify-end w-full h-[62px] px-2">
         <BlueButtons.SmallBlueButton text="Modifier votre profil"/>
     </div>
-    <div className="flex flex-col items-center justify-around w-full px-2 pt-2 h-[150px]">
+    <div className="flex flex-col items-center bg-white justify-around w-full px-2 pt-2 h-[150px]">
         <p className="w-full text-lg font-semibold text-gray-700">Kambale Mahili Aggestor</p>
         <p className="flex w-full text-sm text-gray-500 f"><BsGlobeEuropeAfrica className="w-5 h-5 mr-2"/><span>Nord-Kivu,Butembo.</span></p>
         <p className="flex w-full text-sm text-gray-500 f"><FaBirthdayCake className="w-5 h-5 mr-2"/><span>Goma, 12 déc 1995</span></p>
