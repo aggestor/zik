@@ -6,18 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function SignUp(){
-   return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
+   return <div className="w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         
-        <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
+        <div className="w-[40%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
             <h1 className="w-11/12 mx-auto text-3xl font-bold text-center text-gray-900">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
             <div className="w-full h-72">
                 <Image alt="Image login illustration" src={"/illustration.png"} sizes="500%" height={0} width={0} className="w-full h-full mix-blend-color-burn"/>
             </div>
         </div>
-        <form className="w-[55%] py-4 px-2 h-full">
+        <form className="w-[60%] py-4 px-2 h-full">
             <h2 className="text-xl font-bold text-center text-blue-600">Art.cd</h2>
             <p className="font-semibold text-center text-gray-600">Inscription de l&apos;artiste.</p>
-            <div className=" mt-3 h-[355px] p-2 overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
+            <div className=" mt-3 h-[400px] p-2 overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
                 <div className="w-9/12">
                     <TextBox name="firstName" label="Nom" type="text" placeholder="Votre nom"/>
                 </div>
