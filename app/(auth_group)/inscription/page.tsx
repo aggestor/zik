@@ -1,5 +1,6 @@
 import BasicPageBanner from "@/components/BasicPageBanner";
 import BlueButtons from "@/components/BlueButtons";
+import SelectBox from "@/components/SelectBox";
 import TextBox from "@/components/TextBox";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,7 +36,10 @@ export default function SignUp(){
                     <TextBox name="birthday" label="Date de naissance" type="date" placeholder=""/>
                 </div>
                 <div className="flex w-full space-x-2">
-                    <TextBox name="birthPlace" label="Province" type="text" placeholder="Province ou vous vivez actuellement"/>
+                    <SelectBox name="birthPlace" label="Province" type="text" placeholder="Province ou vous vivez actuellement">
+                        <option value={"test"}>Test</option>
+                        <option value={"test2"}>Test 2</option>
+                    </SelectBox>
                     <TextBox name="birthday" label="Ville/Village" type="text" placeholder="Ville ou Village"/>
                 </div>
                 <small className="mt-2 text-gray-600">En cliquant sur le bouton <b>&apos;Enregistrer les informations&apos;</b> vous acceptez <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> notre politique de confidentialites.</Link> ansi que <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> nos conditions d&apos;utilisations.</Link>  </small>
