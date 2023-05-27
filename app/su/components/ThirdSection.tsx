@@ -1,7 +1,7 @@
 import { BsFacebook, BsInstagram, BsTwitter, BsWhatsapp, BsYoutube } from "react-icons/bs";
 
 export default function ThirdSection(){
-    return <div className="w-full p-3 mt-4 text-gray-500 shadow-xl bg-white shadow-gray-200">
+    return <div className="w-full p-3 mt-4 text-gray-500 shadow-xl shadow-gray-200">
         <p className="w-full text-lg font-semibold text-gray-800">Réseaux sociaux</p>
         <div className="flex justify-between w-full mt-4 mb-3">
             <div className="flex w-[20%]">

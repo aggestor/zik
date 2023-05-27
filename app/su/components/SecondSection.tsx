@@ -1,5 +1,5 @@
 export default function SecondSection(){
-    return <div className="w-full p-3 mt-4 bg-white text-gray-500 shadow-xl h-h6 shadow-gray-200">
+    return <div className="w-full p-3 mt-4 text-gray-500 shadow-xl h-h6 shadow-gray-200">
         <p className="w-full text-lg font-semibold text-gray-700">Votre bio</p>
         <p className="mt-3 text-sm">Lus, sed impedit. Tenetur.
         Harum ipsam error necessitatibus debitis delectus tempore dolorum, eveniet cupiditate non neque obcaecati modi fuga commodi, at, voluptates molestias totam minus dicta placeat blanditiis esse libero quisquam iure? Placeat, itaque!
