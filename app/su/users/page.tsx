@@ -31,11 +31,10 @@ export default function Users(){
           </div>
         </div>
         <div className="flex mt-3 flex-wrap">
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
+            <UserCard infos={{name:"Aggestor", type:"Peintre", image: "/alex-perri-At__EKm5PGE-unsplash.jpg"}}/>
+            <UserCard infos={{name:"Mahili Mathe", type:"Musicien", image: "/charlie-green-3JmfENcL24M-unsplash.jpg"}}/>
+            <UserCard infos={{name:"Rostand Molo", type:"Comedien", image: "/prince-akachi-4Yv84VgQkRM-unsplash.jpg"}}/>
+            <UserCard infos={{name:"Rosalina Mathe", type:"Decoratrice", image: "/szocs-viola-ThOuFQa8dJA-unsplash.jpg"}}/>
         </div>
 
     </div>
