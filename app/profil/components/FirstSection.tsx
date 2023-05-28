@@ -1,3 +1,4 @@
+"use client"
 import BlueButtons from "@/components/BlueButtons";
 import { BsEnvelope, BsGlobeEuropeAfrica, BsPhone } from "react-icons/bs";
 import { FaBirthdayCake, FaCalendar } from "react-icons/fa";
@@ -10,7 +11,7 @@ export default function FirstSection(){
         <Image className="object-cover w-full h-full rounded-full" src={"/man.jpg"} alt="User avatar" sizes="100%" height={0} width={0}/>
     </div>
     <div className="flex items-center bg-white justify-end w-full h-[62px] px-2">
-        <BlueButtons.SmallBlueButton text="Modifier votre profil"/>
+        <BlueButtons.SmallBlueButton  text="Modifier votre profil"/>
     </div>
     <div className="flex flex-col items-center bg-white justify-around w-full px-2 pt-2 h-[150px]">
         <p className="w-full text-lg font-semibold text-gray-700">Kambale Mahili Aggestor</p>
