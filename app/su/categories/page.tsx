@@ -1,9 +1,10 @@
 "use client"
 import GoBack from "@/components/GoBack";
 import { useState } from "react";
-import { BsFilter, BsGrid3X3, BsList, BsListOl, BsPlus } from "react-icons/bs";
+import {BsGrid3X3, BsList, BsListOl, BsPlus } from "react-icons/bs";
 import UserCard from "../components/UserCard";
-import { BaseBlueButton, SmallBlueButton } from "@/components/BlueButtons";
+import { BaseBlueButton } from "@/components/BlueButtons";
+import CategoryCard from "../components/CategoryCard";
 
 export const metadata = {
     title :"Toutes les categories"
@@ -18,6 +19,9 @@ export default function Users(){
             setLayout("list")
         }else setLayout("grid")
     }
+    const onClickAddBtn = () =>{
+
+    }
     return <div className="w-11/12 mx-auto h-[95%]">
         <div className="w-full border-b  flex h-10 items-center justify-between  rounded text-gray-700">
           <div className="flex items-center">
@@ -28,16 +32,16 @@ export default function Users(){
             <span onClick={handleSetLayout} className="rounded cursor-pointer bg-gray-700 text-white flex items-center p-1 border">
                 {layout === "grid" ? <BsGrid3X3 className="h-4 w-4"/> : <BsListOl className="h-4 w-4"/>}
             </span>
-            <BaseBlueButton>
+            <BaseBlueButton onClick={onClickAddBtn}>
                 <BsPlus/>
             </BaseBlueButton>
           </div>
         </div>
         <div className="flex mt-3 flex-wrap">
-            <UserCard infos={{name:"Aggestor", type:"Peintre", image: "/alex-perri-At__EKm5PGE-unsplash.jpg"}}/>
-            <UserCard infos={{name:"Mahili Mathe", type:"Musicien", image: "/charlie-green-3JmfENcL24M-unsplash.jpg"}}/>
-            <UserCard infos={{name:"Rostand Molo", type:"Comedien", image: "/prince-akachi-4Yv84VgQkRM-unsplash.jpg"}}/>
-            <UserCard infos={{name:"Rosalina Mathe", type:"Decoratrice", image: "/szocs-viola-ThOuFQa8dJA-unsplash.jpg"}}/>
+            <CategoryCard infos={{name:"Aggestor", type:"Peintre", image: "/alex-perri-At__EKm5PGE-unsplash.jpg"}}/>
+            <CategoryCard infos={{name:"Mahili Mathe", type:"Musicien", image: "/charlie-green-3JmfENcL24M-unsplash.jpg"}}/>
+            <CategoryCard infos={{name:"Rostand Molo", type:"Comedien", image: "/prince-akachi-4Yv84VgQkRM-unsplash.jpg"}}/>
+            <CategoryCard infos={{name:"Rosalina Mathe", type:"Decoratrice", image: "/szocs-viola-ThOuFQa8dJA-unsplash.jpg"}}/>
         </div>
 
     </div>

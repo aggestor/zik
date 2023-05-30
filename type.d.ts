@@ -13,3 +13,8 @@ export type UserInfoType = {
     type ?: string
     image ? :string
 }
+export type CategoryInfoType = {
+    name ?: string
+    type ?: string
+    image ? :string
+}
