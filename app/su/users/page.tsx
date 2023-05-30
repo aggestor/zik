@@ -1,9 +1,8 @@
 "use client"
-import GoBack from "@/components/GoBack";
-import { useState } from "react";
-import { BsFilter, BsGrid3X3, BsList, BsListOl } from "react-icons/bs";
-import UserCard from "../components/UserCard";
-
+import GoBack from "@/components/GoBack"
+import {useState} from "react"
+import { BsFilter, BsGrid3X3, BsListOl } from "react-icons/bs"
+import UserCard from "../components/UserCard"
 export default function Users(){
     const [layout, setLayout] = useState("grid")
     const [filter, setFilter] = useState("default")
