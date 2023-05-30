@@ -5,6 +5,7 @@ import {BsGrid3X3, BsList, BsListOl, BsPlus } from "react-icons/bs";
 import UserCard from "../components/UserCard";
 import { BaseBlueButton } from "@/components/BlueButtons";
 import CategoryCard from "../components/CategoryCard";
+import ExtensionCard from "../components/ExtensionCard";
 
 export const metadata = {
     title :"Toutes les categories"
@@ -38,10 +39,10 @@ export default function Users(){
           </div>
         </div>
         <div className="flex mt-3 flex-wrap">
-            <CategoryCard infos={{name:"Aggestor", type:"Peintre", image: "/alex-perri-At__EKm5PGE-unsplash.jpg"}}/>
-            <CategoryCard infos={{name:"Mahili Mathe", type:"Musicien", image: "/charlie-green-3JmfENcL24M-unsplash.jpg"}}/>
-            <CategoryCard infos={{name:"Rostand Molo", type:"Comedien", image: "/prince-akachi-4Yv84VgQkRM-unsplash.jpg"}}/>
-            <CategoryCard infos={{name:"Rosalina Mathe", type:"Decoratrice", image: "/szocs-viola-ThOuFQa8dJA-unsplash.jpg"}}/>
+            <ExtensionCard infos={{name:"Aggestor", type:"Peintre", image: "/alex-perri-At__EKm5PGE-unsplash.jpg"}}/>
+            <ExtensionCard infos={{name:"Mahili Mathe", type:"Musicien", image: "/charlie-green-3JmfENcL24M-unsplash.jpg"}}/>
+            <ExtensionCard infos={{name:"Rostand Molo", type:"Comedien", image: "/prince-akachi-4Yv84VgQkRM-unsplash.jpg"}}/>
+            <ExtensionCard infos={{name:"Rosalina Mathe", type:"Decoratrice", image: "/szocs-viola-ThOuFQa8dJA-unsplash.jpg"}}/>
         </div>
 
     </div>
