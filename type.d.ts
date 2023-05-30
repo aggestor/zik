@@ -1,6 +1,8 @@
+import React from "react"
+
 export type ButtonProps = {
-    text : string
-    icon?: JSX.Element
+    text ?: string
+    children ?: React.ReactNode
     iconPosition?:"left"|"right",
     width?:"full"|"fit"
     type?:"button"|"reset"|"submit"
