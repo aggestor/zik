@@ -7,12 +7,17 @@ import useForm from "@/hooks/useForm";
 import User from "@/services/User";
 import Image from "next/image";
 import Link from "next/link";
+import {useState} from "react"
+type Error = Record<string, string[]>
 
 export default function SignUp(){
-    const [{name, email,phoneNumber, birthday, birthPlace, town,state}, handleChange] = useForm({name:"", phoneNumber :"", email:"",birthPlace:"", birthday:"", state:"", town:""})
+    const [{name, password, email,phone, birthDate, birthPlace, town,state}, handleChange] = useForm({name:"", phone :"", email:"",birthPlace:"", birthDate:"", state:"", town:"", password:""})
+    const [errors, setErrors] = useState<Error>()
     const registerUser = async () =>{
-        const result = await User.register({name, email,phoneNumber, birthday, birthPlace, town,state})
-        console.log(result)
+        const result = await User.register({name, email,phone, birthDate, birthPlace,password, town,state})
+        if(result.response?.status == 422){
+            setErrors((result.response as Record<string, any>).data.errors as Error)
+        }
     }
    return <div className="w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         
@@ -27,24 +32,27 @@ export default function SignUp(){
             <p className="font-semibold text-center text-gray-600">Inscription de l&apos;artiste.</p>
             <div className=" mt-3 h-[400px] p-2 overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
                 <div className="w-9/12">
-                    <TextBox name="name" label="Nom" type="text" placeholder="Votre nom"/>
+                    <TextBox value={name as string} onChange={handleChange} error={errors} name="name" label="Nom" type="text" placeholder="Votre nom"/>
                 </div>
                 <div className="w-7/12">
-                    <TextBox name="phoneNumber" label="Telephone" type="phone" placeholder="Avec le code du pays"/>
+                    <TextBox value={phone as string} onChange={handleChange} error={errors} name="phone" label="Telephone" type="phone" placeholder="Avec le code du pays"/>
                 </div>
                 <div className="w-9/12">
-                    <TextBox name="email" label="E-mail" type="email" placeholder="Votre adresse email"/>
+                    <TextBox value={email as string} onChange={handleChange} error={errors} name="email" label="E-mail" type="email" placeholder="Votre adresse email"/>
+                </div>
+                <div className="w-9/12">
+                    <TextBox value={password as string} onChange={handleChange} error={errors} name="password" label="Mot de passe" type="text" placeholder="Votre mot de passe"/>
                 </div>
                 <div className="flex w-full space-x-2">
-                    <TextBox name="birthPlace" label="Lieu de naissance" type="text" placeholder=""/>
-                    <TextBox name="birthday" label="Date de naissance" type="date" placeholder=""/>
+                    <TextBox value={birthPlace as string} onChange={handleChange} error={errors} name="birthPlace" label="Lieu de naissance" type="text" placeholder=""/>
+                    <TextBox value={birthDate as string} onChange={handleChange} error={errors} name="birthDate" label="Date de naissance" type="date" placeholder=""/>
                 </div>
                 <div className="flex w-full space-x-2">
                     <SelectBox name="state" label="Province" type="text" placeholder="Province ou vous vivez actuellement">
                         <option value={"test"}>Test</option>
                         <option value={"test2"}>Test 2</option>
                     </SelectBox>
-                    <TextBox name="town" label="Ville/Village" type="text" placeholder="Ville ou Village"/>
+                    <TextBox value={town as string} onChange={handleChange} error={errors}  name="town" label="Ville/Village" type="text" placeholder="Ville ou Village"/>
                 </div>
                 <small className="mt-2 text-gray-600">En cliquant sur le bouton <b>&apos;Enregistrer les informations&apos;</b> vous acceptez <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> notre politique de confidentialites.</Link> ansi que <Link className="text-blue-600 underline" href={"/reinitialiser-mot-de-passe"}> nos conditions d&apos;utilisations.</Link>  </small>
                 <div className="my-3">
