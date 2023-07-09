@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { ToastProvider } from '@/contexts/ToastContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* <Navbar/> */}
         <div>
+          <ToastProvider>
           {children}
+          </ToastProvider>
         </div>
       </body>
     </html>
