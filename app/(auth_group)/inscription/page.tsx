@@ -5,18 +5,18 @@ import SelectBox from "@/components/SelectBox";
 import TextBox from "@/components/TextBox";
 import useForm from "@/hooks/useForm";
 import User from "@/services/User";
+import { APIError } from "@/type";
 import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react"
-type Error = Record<string, string[]>
 
 export default function SignUp(){
     const [{name, password, email,phone, birthDate, birthPlace, town,state}, handleChange] = useForm({name:"", phone :"", email:"",birthPlace:"", birthDate:"", state:"", town:"", password:""})
-    const [errors, setErrors] = useState<Error>()
+    const [errors, setErrors] = useState<APIError>()
     const registerUser = async () =>{
         const result = await User.register({name, email,phone, birthDate, birthPlace,password, town,state})
         if(result.response?.status == 422){
-            setErrors((result.response as Record<string, any>).data.errors as Error)
+            setErrors((result.response as Record<string, any>).data.errors as APIError)
         }
     }
    return <div className="lg:w-9/12 w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">

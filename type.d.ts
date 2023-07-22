@@ -18,3 +18,4 @@ export type CategoryInfoType = {
     type ?: string
     image ? :string
 }
+export type APIError = Record<string, string[]>

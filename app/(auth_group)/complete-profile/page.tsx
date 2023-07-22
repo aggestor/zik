@@ -3,6 +3,9 @@ import BlueButtons from "@/components/BlueButtons";
 import GrayButtons from "@/components/GrayButtons";
 import TextBox from "@/components/TextBox";
 import Textarea from "@/components/Textarea";
+import useForm from "@/hooks/useForm";
+import User from "@/services/User";
+import { APIError } from "@/type";
 import Image from "next/image";
 import Link from "next/link";
 import { ChangeEvent, useRef, useState } from "react";
@@ -21,7 +24,16 @@ export default function CompleteProfile(){
             setImageFileURL(URL.createObjectURL(fileImage))
         }
     }
+    const [{Instagram, TikTok, Twitter, Youtube, description, Facebook}, handleChange] = useForm({TikTok:"",Youtube:"", Twitter:"",Facebook:"",Instagram:"", description})
+    const [errors, setErrors] = useState<APIError>()
     const toggleAddSocials = () => setShowAddSocials(!showAddSocials)
+    const onClickRegister = async () => {
+        const socials = TikTok+","+Twitter+","+Instagram+","+Youtube
+        const result = await User.completeProfile({description, socials,picture:imageFile})
+        if(result.response?.status == 422){
+            setErrors((result.response as Record<string, any>).data.errors as APIError)
+        }
+    }
 
    return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         <div className="w-[45%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
@@ -41,44 +53,44 @@ export default function CompleteProfile(){
                     </span>
                </div>
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
-               <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
+               <Textarea value={description as string} onChange={handleChange} error={errors}  name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
                 {showAddSocials && <div>
                     <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsTiktok className="w-6 h-6"/>
                         </span>
-                        <TextBox name="lastName"  type="link" placeholder="Tiktok"/>
+                        <TextBox onChange={handleChange} value={TikTok as string} error={errors} name="TikTok"  type="link" placeholder="Tiktok"/>
                     </div>
                     <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-red-500 rounded place-items-center">
                             <BsYoutube className="w-6 h-6"/>
                         </span>
-                        <TextBox name="lastName"  type="link" placeholder="Youtube"/>
+                        <TextBox onChange={handleChange} value={Youtube as string} error={errors} name="Youtube"  type="link" placeholder="Youtube"/>
                     </div>
                     <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsInstagram className="w-6 h-6"/>
                         </span>
-                        <TextBox name="lastName"  type="link" placeholder="Instagram"/>
+                        <TextBox onChange={handleChange} value={Instagram as string} error={errors}  name="Instagram"  type="link" placeholder="Instagram"/>
                     </div>
                     <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-blue-600 place-items-center">
                             <BsFacebook className="w-6 h-6"/>
                         </span>
-                        <TextBox name="lastName"  type="link" placeholder="Facebook"/>
+                        <TextBox onChange={handleChange} value={Facebook as string} error={errors} name="Facebook"  type="link" placeholder="Facebook"/>
                     </div>
                     <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-sky-500 place-items-center">
                             <BsTwitter className="w-6 h-6"/>
                         </span>
-                        <TextBox name="lastName"  type="link" placeholder="Twitter"/>
+                        <TextBox onChange={handleChange} value={Twitter as string} error={errors} name="Twitter"  type="link" placeholder="Twitter"/>
                     </div>
                 </div>}
                 <div className="my-2">
                 <GrayButtons.BaseGrayButton type="button" onClick={toggleAddSocials} text={!showAddSocials ? "Ajouter les Resaux sociaux" : "Cacher le reseaux sociaux"}/>
                 </div>
                 <div className="my-3">
-                    <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
+                    <BlueButtons.BaseBlueButton onClick={onClickRegister} text="Finaliser l'inscription" width="full"/>
                 </div>
                 <small className="mt-3 text-gray-600">Pas pret(e)  ?<Link className="text-blue-600 underline" href={"/profil"}> Revenir plutard.</Link>  </small>
             </div>
