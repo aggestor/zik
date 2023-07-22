@@ -14,6 +14,7 @@ import {BsFacebook, BsImage, BsInstagram, BsTiktok, BsTwitter, BsYoutube} from "
 export default function CompleteProfile(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
     const [imageFile, setImageFile]  = useState<File>()
+    const [loading, setLoading]  = useState(false)
     const [showAddSocials,setShowAddSocials] = useState(false)
     const imagePicker = useRef<any>()
     const handlePickImage = ()=> imagePicker.current?.click()
@@ -24,15 +25,20 @@ export default function CompleteProfile(){
             setImageFileURL(URL.createObjectURL(fileImage))
         }
     }
-    const [{Instagram, TikTok, Twitter, Youtube, description, Facebook}, handleChange] = useForm({TikTok:"",Youtube:"", Twitter:"",Facebook:"",Instagram:"", description})
+    const [{Instagram, TikTok, Twitter, Youtube, description, Facebook}, handleChange] = useForm({TikTok:"",Youtube:"", Twitter:"",Facebook:"",Instagram:"", description:""})
     const [errors, setErrors] = useState<APIError>()
     const toggleAddSocials = () => setShowAddSocials(!showAddSocials)
     const onClickRegister = async () => {
+        setLoading(true)
         const socials = TikTok+","+Twitter+","+Instagram+","+Youtube
-        const result = await User.completeProfile({description, socials,picture:imageFile})
+        const result = await User.completeProfile({description, socials,picture:imageFile as File})
         if(result.response?.status == 422){
             setErrors((result.response as Record<string, any>).data.errors as APIError)
         }
+        else if(result.status == 200){
+
+        }
+        setLoading(false)
     }
 
    return <div className="w-10/12 mx-auto h-[500px]  shadow-lg flex shadow-gray-200 bg-white rounded">
