@@ -11,7 +11,7 @@ import {BsFacebook, BsImage, BsInstagram, BsTiktok, BsTwitter, BsYoutube} from "
 export default function CompleteProfile(){
     const [imageFileURL, setImageFileURL]  = useState("/placeholder.png")
     const [imageFile, setImageFile]  = useState<File>()
-    const [showAddSocials,setShowAddSocials] = useState(true)
+    const [showAddSocials,setShowAddSocials] = useState(false)
     const imagePicker = useRef<any>()
     const handlePickImage = ()=> imagePicker.current?.click()
     const pickImage = (e :ChangeEvent<HTMLInputElement>) =>{
@@ -42,39 +42,41 @@ export default function CompleteProfile(){
                </div>
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
                <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
-                <GrayButtons.BaseGrayButton type="button" onClick={toggleAddSocials} text="Ajouter les Resaux sociaux"/>
                 {showAddSocials && <div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsTiktok className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Tiktok"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-red-500 rounded place-items-center">
                             <BsYoutube className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Youtube"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsInstagram className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Instagram"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-blue-600 place-items-center">
                             <BsFacebook className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Facebook"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-sky-500 place-items-center">
                             <BsTwitter className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Twitter"/>
                     </div>
                 </div>}
+                <div className="my-2">
+                <GrayButtons.BaseGrayButton type="button" onClick={toggleAddSocials} text={!showAddSocials ? "Ajouter les Resaux sociaux" : "Cacher le reseaux sociaux"}/>
+                </div>
                 <div className="my-3">
                     <BlueButtons.BaseBlueButton text="Finaliser l'inscription" width="full"/>
                 </div>

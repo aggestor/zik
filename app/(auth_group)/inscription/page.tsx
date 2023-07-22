@@ -19,7 +19,7 @@ export default function SignUp(){
             setErrors((result.response as Record<string, any>).data.errors as Error)
         }
     }
-   return <div className="w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">
+   return <div className="lg:w-9/12 w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">
         
         <div className="w-[40%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
             <h1 className="w-11/12 mx-auto text-3xl font-bold text-center text-gray-900">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
