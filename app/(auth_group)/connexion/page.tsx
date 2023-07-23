@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Login(){
-    return <div className="w-9/12 shadow-lg flex shadow-gray-200 rounded h-[450px] bg-white">
-        <form className="w-[45%] py-4 px-2 h-full">
+    return <div className="md:w-9/12 w-full shadow-lg flex shadow-gray-200 rounded h-auto md:h-[450px] bg-white">
+        <form className="md:w-[45%] w-full  py-4 px-2 h-full">
             <h2 className="text-blue-600 font-bold text-xl text-center">Art.cd</h2>
             <p className="text-gray-600 text-center font-semibold">Connexion de l&apos;artiste.</p>
             <div className=" mt-10 w-10/12 mx-auto">
@@ -21,7 +21,7 @@ export default function Login(){
             <div className="mx-auto text-sm w-full text-center text-gray-400 mt-10">&copy; Copyright 2023 Art.cd.</div>
 
         </form>
-        <div className="w-[55%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
+        <div className="w-[55%] hidden md:block h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
             <h1 className="text-gray-900 w-11/12 mx-auto font-bold text-3xl text-center">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
             <div className="w-full h-72">
                 <Image alt="Image login illustration" src={"/illustration.png"} sizes="500%" height={0} width={0} className="w-full  mix-blend-color-burn  h-full"/>
