@@ -73,31 +73,31 @@ export default function ModifierProfile(){
                <input onChange={pickImage} ref={imagePicker} hidden type="file" name="fileInput" accept="images/png,images/jpeg" />
                <Textarea name="description" label="Description"  placeholder="Parlez-nous un peu sur vous"/>
               <div className="mt-5">
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsTiktok className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Tiktok"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-red-500 rounded place-items-center">
                             <BsYoutube className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Youtube"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-gray-700 place-items-center">
                             <BsInstagram className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Instagram"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-blue-600 place-items-center">
                             <BsFacebook className="w-6 h-6"/>
                         </span>
                         <TextBox name="lastName"  type="link" placeholder="Facebook"/>
                     </div>
-                    <div className="flex items-center w-full space-x-2">
+                    <div className="flex mt-2 items-center w-full space-x-2">
                         <span className="grid w-8 h-8 text-sky-500 place-items-center">
                             <BsTwitter className="w-6 h-6"/>
                         </span>
