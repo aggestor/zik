@@ -3,15 +3,17 @@ import BlueButtons from "@/components/BlueButtons";
 import { BsEnvelope, BsGlobeEuropeAfrica, BsPhone } from "react-icons/bs";
 import { FaBirthdayCake, FaCalendar } from "react-icons/fa";
 import Image from "next/image"
+import { useRouter } from "next/navigation";
 
 export default function FirstSection(){
+    const router = useRouter()
     return <div className="relative w-full shadow-lg shadow-gray-200 rounded-t-xl h-[360px] ">
     <div className="w-full border rounded-t-xl h-36 bg-gradient-to-l from-gray-100 via-sky-100 to-blue-200"></div>
     <div className="absolute w-40 h-40 p-1 bg-white border-2 border-white rounded-full top-14 left-4">
         <Image className="object-cover w-full h-full rounded-full" src={"/man.jpg"} alt="User avatar" sizes="100%" height={0} width={0}/>
     </div>
     <div className="flex items-center bg-white justify-end w-full h-[62px] px-2">
-        <BlueButtons.SmallBlueButton  text="Modifier votre profil"/>
+        <BlueButtons.SmallBlueButton onClick={()=> router.push("/profil/modifier")}  text="Modifier votre profil"/>
     </div>
     <div className="flex flex-col items-center bg-white justify-around w-full px-2 pt-2 h-[150px]">
         <p className="w-full text-lg font-semibold text-gray-700">Kambale Mahili Aggestor</p>
