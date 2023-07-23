@@ -5,49 +5,49 @@ import SelectBox from "@/components/SelectBox";
 import TextBox from "@/components/TextBox";
 import useForm from "@/hooks/useForm";
 import User from "@/services/User";
+import { APIError } from "@/type";
 import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react"
-type Error = Record<string, string[]>
 
 export default function SignUp(){
     const [{name, password, email,phone, birthDate, birthPlace, town,state}, handleChange] = useForm({name:"", phone :"", email:"",birthPlace:"", birthDate:"", state:"", town:"", password:""})
-    const [errors, setErrors] = useState<Error>()
+    const [errors, setErrors] = useState<APIError>()
     const registerUser = async () =>{
         const result = await User.register({name, email,phone, birthDate, birthPlace,password, town,state})
         if(result.response?.status == 422){
-            setErrors((result.response as Record<string, any>).data.errors as Error)
+            setErrors((result.response as Record<string, any>).data.errors as APIError)
         }
     }
-   return <div className="w-11/12 mx-auto h-[550px]  shadow-lg flex shadow-gray-200 bg-white rounded">
+   return <div className="lg:w-9/12 w-full mx-auto md:h-[550px] h-auto  shadow-lg flex shadow-gray-200 bg-white rounded">
         
-        <div className="w-[40%] h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
+        <div className="md:w-[40%] hidden md:block w-full h-full bg-gradient-to-b p-4 from-white  via-sky-100 to-blue-50">
             <h1 className="w-11/12 mx-auto text-3xl font-bold text-center text-gray-900">Restez connecter avec <span className="text-blue-600">des milliers d&apos;artistes</span> venant de partout  avec <span className="text-blue-600">Art.cd</span> !</h1>
             <div className="w-full h-72">
                 <Image alt="Image login illustration" src={"/illustration.png"} sizes="500%" height={0} width={0} className="w-full h-full mix-blend-color-burn"/>
             </div>
         </div>
-        <form className="w-[60%] py-4 px-2 h-full">
+        <form className="md:w-[60%] w-full py-4 px-2 h-full">
             <h2 className="text-xl font-bold text-center text-blue-600">Art.cd</h2>
             <p className="font-semibold text-center text-gray-600">Inscription de l&apos;artiste.</p>
-            <div className=" mt-3 h-[400px] p-2 overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
-                <div className="w-9/12">
+            <div className=" mt-3 md:h-[400px] h-auto p-2 md:overflow-y-auto overflow-x-hidden  __scrollbar   w-11/12 mx-auto">
+                <div className="md:w-9/12">
                     <TextBox value={name as string} onChange={handleChange} error={errors} name="name" label="Nom" type="text" placeholder="Votre nom"/>
                 </div>
-                <div className="w-7/12">
+                <div className="md:w-7/12">
                     <TextBox value={phone as string} onChange={handleChange} error={errors} name="phone" label="Telephone" type="phone" placeholder="Avec le code du pays"/>
                 </div>
-                <div className="w-9/12">
+                <div className="md:w-9/12">
                     <TextBox value={email as string} onChange={handleChange} error={errors} name="email" label="E-mail" type="email" placeholder="Votre adresse email"/>
                 </div>
-                <div className="w-9/12">
+                <div className="md:w-9/12">
                     <TextBox value={password as string} onChange={handleChange} error={errors} name="password" label="Mot de passe" type="text" placeholder="Votre mot de passe"/>
                 </div>
-                <div className="flex w-full space-x-2">
+                <div className="flex md:flex-row flex-col w-full md:space-x-2">
                     <TextBox value={birthPlace as string} onChange={handleChange} error={errors} name="birthPlace" label="Lieu de naissance" type="text" placeholder=""/>
                     <TextBox value={birthDate as string} onChange={handleChange} error={errors} name="birthDate" label="Date de naissance" type="date" placeholder=""/>
                 </div>
-                <div className="flex w-full space-x-2">
+                <div className="flex md:flex-row flex-col w-full md:space-x-2">
                     <SelectBox name="state" label="Province" type="text" placeholder="Province ou vous vivez actuellement">
                         <option value={"test"}>Test</option>
                         <option value={"test2"}>Test 2</option>
